@@ -41,3 +41,9 @@ void draw() {
   image(cam, 0, 0);  
   shader(effect);
 }
+
+void keyPressed() {
+	if (key == 'S' || key == 's') {
+		save("save/pic.jpg");
+	}
+}

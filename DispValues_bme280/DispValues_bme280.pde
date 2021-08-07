@@ -27,3 +27,9 @@ void draw() {
   float alt = bme280.altitude(press, temp);
   text(String.format("Alt: %.02f m", alt), 10, 300);
 }
+
+void keyPressed() {
+	if (key == 'S' || key == 's') {
+		save("save/pic.jpg");
+	}
+}
