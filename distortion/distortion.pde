@@ -62,3 +62,11 @@ void mouseReleased() {
   img1 = loadImage(path);
   img1.resize(width,height);
 }
+
+
+void keyPressed() {
+	if (key == 'S' || key == 's') {
+    String savepath = "save/pic" + str(num) + ".jpg";
+		save(savepath);
+	}
+}
