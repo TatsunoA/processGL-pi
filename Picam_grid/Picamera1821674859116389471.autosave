@@ -1,0 +1,30 @@
+import processing.video.*;
+Capture cam;
+
+PShader effect;
+
+void setup() {
+  size(640, 480, P2D);
+
+  String[] devices = Capture.list();
+  println("Devices:");
+  printArray(devices);
+
+  // Use camera resolution of 640x480 pixels at 24 frames per second
+  cam = new Capture(this);
+  cam.start();
+
+  effect = loadShader("pixelate.glsl");
+}
+
+void draw() {
+  background(0);
+  if (cam.available()) {
+    cam.read();
+  }
+  
+  effect.set("pixels", 0.15 * mouseX, 0.15 * mouseY);
+
+  image(cam, 0, 0);  
+  shader(effect);
+}
